@@ -1,0 +1,20 @@
+Sorgiva Synth — Documentation License
+======================================
+
+Unless a document states otherwise, the documentation under `docs/` is licensed under:
+
+Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+
+Copyright (C) 2026 Giuseppe Tararà.
+
+Recommended attribution
+-----------------------
+
+"Sorgiva Synth documentation", Giuseppe Tararà, licensed under CC BY-SA 4.0.
+
+Notes
+-----
+
+- Code examples that are substantial parts of the Sorgiva Synth program should be treated as GPL-3.0-only.
+- Documentation text, diagrams and explanatory material are CC BY-SA 4.0 unless otherwise noted.
+- The official Sorgiva Synth name, official release line and branding remain governed by `TRADEMARK_NOTICE.txt`.

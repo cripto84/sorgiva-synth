@@ -1,0 +1,45 @@
+Sorgiva Synth — Safe Change Rules v0.26.1
+
+File delicati
+- src/audio/audio-context.js
+  Cuore audio. Non modificare senza motivo forte.
+- src/presets/factory-presets.js
+  Libreria factory attiva. Non modificare in fasi non-preset.
+- src/state/state.js
+  Stato globale. Modifiche possibili ma vanno testate su preset, MIDI, UI e runtime.
+- src/ui/controls.js
+  Binding UI. Modifiche possono creare controlli muti o label incoerenti.
+- index.html
+  ID duplicati o link rotti possono rompere moduli anche se il JS è valido.
+
+Modifiche sicure in fasi documentali
+- aggiungere file sotto docs/user o docs/developer;
+- aggiornare docs/README.txt;
+- aggiornare release notes;
+- aggiornare README/CHANGELOG/VERSION;
+- aggiornare testi versione in index.html;
+- aggiornare appVersion/log in state/main;
+- non alterare parametri sonori.
+
+Modifiche non sicure senza regression test
+- cambiare voice allocation;
+- cambiare note off/release;
+- cambiare sustain;
+- cambiare gain staging;
+- cambiare delay feedback o reverb routing;
+- cambiare filtri o advanced filter;
+- cambiare gestione MIDI note/pitch/mod wheel;
+- cambiare preset normalization senza test export/import;
+- cambiare categorie factory senza count/categoria QA.
+
+Regola sulla UI
+Non stravolgere layout generale. La tastiera deve restare visibile e non compressa. La UI a schede è un vincolo progettuale della mainline desktop/core.
+
+Regola sulla versione mobile
+Mobile/tablet sarà un fork separato futuro. Non comprimere la mainline desktop per mobile.
+
+Regola su canvas
+Canvas è accettato nella web app per visualizer/oscilloscopio/spettroscopio quando tecnicamente sensato. Non confondere questa scelta con l'evitare canvas nei pop-up/modalità ChatGPT.
+
+Regola su preset
+Preset sonoro non deve alterare preferenze runtime/UI. Questo confine va mantenuto in ogni nuova feature.

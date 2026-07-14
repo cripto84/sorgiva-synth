@@ -1,0 +1,44 @@
+Sorgiva Synth — Preset / Patch / Runtime Boundary v0.26.0
+
+Definizioni
+
+Factory preset
+Un suono fornito con Sorgiva Synth. Viene caricato come stato sonoro modificabile, ma la sorgente factory non viene riscritta dall'utente.
+
+User preset
+Una copia locale salvata nel browser. È pensata per conservare suoni personali derivati da zero o da factory preset.
+
+Patch JSON
+File tecnico export/import. Contiene parametri serializzabili della patch, non code audio, note attive, oggetti WebAudio, device MIDI o elementi DOM.
+
+Runtime/UI preference
+Stato di uso corrente dell'interfaccia o dei dispositivi, non parte del timbro.
+
+Non devono essere trattati come suono preset:
+- oscilloscopio acceso/spento;
+- spettroscopio acceso/spento;
+- dispositivi MIDI connessi;
+- MIDI Learn runtime;
+- MIDI Clock runtime;
+- channel filter runtime;
+- stato di tab/pannelli;
+- note attive;
+- code audio;
+- timer interni;
+- metadati come category/originalCategory dentro parameters legacy.
+
+Possono essere parte del preset/patch quando serializzabili:
+- oscillatori e noise;
+- PWM, Ring Mod, FM Light, Osc Sync, Unison;
+- LFO;
+- filtri, Filter ADSR, Amp ADSR;
+- EQ ed effetti;
+- Mod Matrix;
+- impostazioni musicali compatibili con preset;
+- Master Tuning se presente come parametro serializzabile della patch.
+
+Regola pratica
+Caricare un preset deve cambiare il suono, non l'ambiente di lavoro dell'utente.
+
+Nota v0.25.16a/v0.25.17
+È stato corretto il caso in cui preset legacy/factory potevano spegnere scope e spectrum. In v0.25.17 il caricamento preset filtra anche chiavi MIDI runtime/legacy e metadati non sonori. La v0.26.0 documenta questo confine.

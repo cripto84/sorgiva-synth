@@ -1,0 +1,75 @@
+Sorgiva Synth — Developer Guide v0.26.1
+
+Nota rename v0.26.4d
+----------------------
+Il nome pubblico del progetto è Sorgiva Synth. Nei documenti sviluppatore possono ancora comparire nomi tecnici `SynthX*` perché il runtime mantiene alias legacy e percorsi di compatibilità per preset, export/import e dati locali pre-rename. Questi riferimenti tecnici non vanno letti come branding pubblico.
+
+Obiettivo del progetto
+Sorgiva Synth è un sintetizzatore WebAudio modulare, leggero e ispezionabile. La mainline desktop/core deve restare accessibile, didattica e abbastanza seria da essere usata per sound design reale. La forma mentale della UI va preservata: schede per famiglie di funzioni, tastiera virtuale sempre visibile in basso, controlli comprensibili e codice non nascosto.
+
+Principio tecnico
+Ogni controllo visibile dovrebbe corrispondere a un parametro tracciabile. Ogni parametro tracciabile dovrebbe avere un comportamento audio o runtime chiaro. Ogni comportamento stabile dovrebbe essere salvabile solo quando appartiene davvero al preset sonoro o performativo.
+
+Ordine di inizializzazione
+L'ordine degli script in index.html è importante:
+1. logger
+2. state
+3. audio-config
+4. audio-dsp
+5. modulation-matrix
+6. audio-context
+7. motion-engine
+8. arpeggiator
+9. step-sequencer
+10. visualizers
+11. tabs/controls/keyboard
+12. preset constants/factory/presets/randomizer/morph
+13. MIDI clock/learn/MIDI
+14. main
+
+main.js avvia i moduli già caricati e registra una subscription globale a SynthXState. La subscription passa i parametri musicali a SynthXAudio.onParameterChange, ma ignora alcune sorgenti runtime come visuals-runtime, motion-runtime, midi-learn-runtime, tuning-runtime e modulation-matrix-runtime.
+
+Moduli globali
+Il codice resta framework-free e usa namespace globali controllati su window:
+- SynthXLogger
+- SynthXState
+- SynthXAudioConfig
+- SynthXAudioDsp
+- SynthXModulationMatrix
+- SynthXAudio
+- SynthXMotion
+- SynthXArpeggiator
+- SynthXSequencer
+- SynthXOscilloscope
+- SynthXSpectroscope
+- SynthXTabs
+- SynthXControls
+- SynthXKeyboard
+- SynthXPresetConstants
+- SynthXFactoryPresets
+- SynthXPresets
+- SynthXRandomizer
+- SynthXPresetMorph
+- SynthXMidiClock
+- SynthXMidiLearn
+- SynthXMidi
+
+Regola per nuove feature
+Una nuova feature va aggiunta solo dopo aver chiarito:
+- parametro/i HTML necessari;
+- default in audio-config.js o nello stato;
+- eventuale gestione in SynthXControls;
+- eventuale comportamento in SynthXAudio;
+- se deve entrare nel preset system o restare runtime/UI;
+- impatto su export/import;
+- impatto su MIDI Learn, Randomizer, Morph, A/B Compare;
+- test statici minimi.
+
+Regola per modifiche sonore
+Prima di modificare audio-context.js valutare se il problema può essere risolto altrove. audio-context.js contiene il cuore WebAudio, gestione voci, FX, filtri, safety, inviluppi e molte interazioni sensibili. Modificarlo senza regression test può introdurre click, note appese, gain eccessivo, leak di nodi, regressioni MIDI o comportamenti divergenti nei preset.
+
+Regola per documentazione
+La documentazione lunga deve restare sotto docs/. La root deve restare pulita: README.txt, CHANGELOG.txt, VERSION, VERSION.txt, index.html, src/, styles/, presets/, docs/.
+
+Regola per output
+Ogni avanzamento deve produrre almeno un FULL bundle aggiornato. La PATCH è utile, ma non deve sostituire il FULL. La PATCH deve essere applicabile alla baseline immediatamente precedente e produrre un risultato identico al FULL.

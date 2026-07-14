@@ -1,0 +1,41 @@
+Sorgiva Synth — Randomizer / Morph / A-B / Mod Matrix Guide v0.26.0
+
+A/B Compare
+Serve a catturare due stati temporanei della patch corrente. È utile per confrontare due varianti prima di decidere quale salvare.
+
+Preset Morph
+Interpola in modo prudente fra slot A e B. Funziona meglio con patch compatibili e non troppo estreme. Il Live Preview è pensato per prova immediata ma va usato con orecchio e livelli prudenti.
+
+Randomizer
+Genera variazioni controllate del suono corrente. È scope-aware: può lavorare su parti del synth senza ritoccare aree esterne. Non deve modificare factory preset, User Bank, MIDI runtime, sequencer/arpeggiatore transport o preferenze visuali.
+
+Mod Matrix
+Ha 8 slot. Ogni slot ha:
+- enabled;
+- source;
+- destination;
+- amount.
+
+Sorgenti tipiche
+- LFO;
+- velocity;
+- filter env;
+- mod wheel;
+- aftertouch/expression/breath/foot se presenti come sorgenti.
+
+Destinazioni tipiche
+- cutoff;
+- pitch;
+- pan;
+- volume;
+- parametri filtro avanzato;
+- drive/filter character secondo disponibilità UI.
+
+Uso consigliato
+- Prima crea un buon suono statico.
+- Poi usa Mod Matrix per movimento o espressività.
+- Usa A/B prima del Randomizer se vuoi conservare il punto di partenza.
+- Usa Morph quando A e B sono varianti musicalmente compatibili.
+
+Guardrail
+Pitch e volume hanno scaling prudente. Quantità e slot randomizzati sono limitati per evitare risultati ingestibili.

@@ -1,0 +1,77 @@
+Sorgiva Synth — QA and Release Checklist v0.26.1
+
+QA statica obbligatoria
+- node --check su tutti i file JS.
+- JSON validi.
+- ZIP FULL integro.
+- ZIP PATCH integro.
+- PATCH applicata alla baseline precedente produce risultato identico al FULL.
+- Script/CSS linkati in index.html presenti.
+- Nessun ID HTML duplicato.
+- Nessun getElementById/getEl statico mancante reale.
+
+Preset QA
+- Factory preset count corretto.
+- Factory preset ID unici.
+- Factory preset names unici.
+- Categorie orfane = 0.
+- Vecchia factory da 290 preset non reintrodotta.
+- presets/ senza JSON storici.
+- Factory library non modificata se la fase non lo richiede.
+- Runtime/UI boundary preservato.
+
+Sequencer QA
+- Step Sequencer UI completa:
+  - active 16/16;
+  - note 16/16;
+  - octave 16/16;
+  - velocity 16/16;
+  - gate 16/16;
+  - accent 16/16;
+  - tie 16/16.
+- Pattern Presets preservati.
+- Stop/Panic preservati.
+- Nessuna nota appesa nei test simulabili.
+
+Arpeggiator QA
+- ON/OFF preservato.
+- Mode/rate/octaves/gate/swing/latch/hold preservati.
+- Behavior Macro preservate.
+- Motion Shape preservate.
+- arp-motion-pattern nella pipeline parametri.
+- Pattern caricabili e fallback coerenti.
+
+MIDI QA
+- MIDI Learn preservato.
+- MIDI Channel Filter runtime preservato.
+- Sustain preservato.
+- Pitch bend preservato.
+- Mod wheel preservata.
+- Aftertouch/expression/breath/foot preservati.
+- MIDI Clock preservato dove supportato.
+
+Audio feature QA
+- Master Tuning non alterato.
+- LFO preservati.
+- Delay Sync preservato.
+- Pulse Width/PWM preservati.
+- Ring Mod preservata.
+- FM Light preservata, incluso amount fino al 50%.
+- Osc Sync preservato.
+- Unison/Detune preservato, incluso CPU Layer Limit.
+- Mod Matrix sana.
+- De-click sine/triangle preservato.
+- Gain Guard preservato.
+
+Docs QA
+- Documentazione lunga sotto docs/.
+- Root TXT pulita.
+- README/CHANGELOG/VERSION aggiornati.
+- Release notes presenti.
+- Docs non dichiarano funzioni future come già presenti.
+
+Pending reale
+Questi test non possono essere sostituiti dalla QA statica:
+- ascolto a orecchio in browser reale;
+- benchmark browser reale;
+- test hardware MIDI reale.

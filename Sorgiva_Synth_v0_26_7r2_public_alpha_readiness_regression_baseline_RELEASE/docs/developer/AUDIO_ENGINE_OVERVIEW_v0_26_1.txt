@@ -1,0 +1,74 @@
+Sorgiva Synth — Audio Engine Overview v0.26.1
+
+Confine del documento
+Questa è una panoramica alto livello. Non sostituisce la lettura di audio-context.js, ma indica i blocchi da rispettare prima di modificarlo.
+
+File principali
+- src/audio/audio-config.js: costanti, defaults, liste parametri.
+- src/audio/audio-dsp.js: utilità DSP pure e conversioni.
+- src/audio/audio-context.js: motore WebAudio e voice management.
+
+Blocchi sonori principali
+- oscillatori 1-3 con forme base e controlli di livello/fine/pan;
+- noise oscillator dedicato;
+- Pulse Width / PWM;
+- Ring Mod;
+- FM Light con amount esteso fino al 50%;
+- Osc Sync;
+- Unison/Detune con CPU Layer Limit;
+- Amp ADSR;
+- Filter ADSR separato;
+- HPF/BPF/Notch/VCF, slope HPF/VCF, key tracking e velocity;
+- Advanced Filter / Resonator / Formant-like blocchi dove presenti;
+- Filter Drive;
+- Saturation/Drive globale;
+- EQ 5 bande;
+- Modulation FX: chorus, ensemble, phaser, flanger;
+- Delay con modalità e sync;
+- Reverb room/hall/plate/dark;
+- Dynamics Safety / Gain Guard / feedback guard;
+- Scope/Spectrum analyser routing.
+
+Voice management
+Le note vengono create e rilasciate tramite SynthXAudio. Arpeggiator, Step Sequencer, MIDI e tastiera virtuale devono usare percorsi note-on/note-off coerenti per evitare note appese. Le modifiche a release, inviluppi, sustain e panic sono delicate.
+
+De-click
+La linea attuale preserva il de-click su sine/triangle e release. Qualsiasi modifica a inviluppi, note off, voice cleanup o gain smoothing deve essere testata specificamente con onde sinusoidali e triangolari.
+
+Delay sync e MIDI clock
+Delay sync, Arpeggiator e Step Sequencer possono dipendere da timing musicali. Non introdurre automatismi che accendono arp/seq o alterano delay sync caricando factory preset, salvo scelta esplicita e documentata.
+
+Gain safety
+Sorgiva Synth deve restare sicuro in cuffia e in browser. Evitare cambi che bypassano safety/gain guard, moltiplicano gain non controllati o aumentano feedback senza clamp.
+
+Quando NON modificare audio-context.js
+Non modificarlo per:
+- cambiare testi UI;
+- aggiungere documentazione;
+- filtrare chiavi preset non sonore;
+- rinominare macro UI;
+- pulire root/docs;
+- correggere metadata versione.
+
+Quando può essere necessario modificarlo
+Solo con bug reale o feature sonora effettiva, per esempio:
+- nota appesa riproducibile;
+- click audio riproducibile;
+- nodo audio non aggiornato;
+- parametro audio già presente in UI ma non applicato;
+- routing sonoro errato;
+- sicurezza gain/feedback.
+
+QA audio richiesta dopo modifiche al motore
+- node --check;
+- smoke test note on/off;
+- panic;
+- sustain;
+- pitch bend;
+- mod wheel;
+- aftertouch/expression/breath/foot;
+- sine/triangle release;
+- preset loading;
+- arp/seq interaction;
+- gain guard;
+- browser real test e ascolto a orecchio quando possibile.

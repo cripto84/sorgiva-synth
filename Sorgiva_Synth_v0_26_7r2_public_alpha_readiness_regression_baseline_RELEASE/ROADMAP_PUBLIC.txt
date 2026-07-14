@@ -1,0 +1,37 @@
+# Sorgiva Synth — Roadmap pubblica
+
+Stato attuale: **v0.26.7r2 — Public Alpha Readiness & Regression Baseline**
+
+Questa build consolida la candidata public alpha: corregge il Preset Morph all'avvio, registra la prima baseline MIDI hardware reale, riallinea i documenti correnti e introduce smoke test ripetibili.
+
+## Passi recenti
+
+1. v0.26.7h — Parameter Coverage Audit / Control Surface Map
+2. v0.26.7h1 — Parameter Audit Metadata / Runtime Label Cleanup Hotfix
+3. v0.26.7i — Sequencer Randomizer Advanced
+4. v0.26.7j — Sequencer Randomizer Safety / Musical QA
+5. v0.26.7k — Sequencer Pattern Preset Rebuild
+6. v0.26.7l — Sequencer Pattern Musical QA / Correction
+7. v0.26.7m — Sound Randomizer Coverage Alignment
+8. v0.26.7n — Sound Randomizer QA / Musical Hardening
+9. v0.26.7o — Arp / Motion Randomizer Alignment
+10. v0.26.7p — MIDI Learn Coverage Audit / Mapping Target Classification
+11. v0.26.7q — MIDI Learn Coverage Expansion
+12. v0.26.7r — MIDI Learn UI Reorganization
+13. v0.26.7r1 — Export Filename Version Alignment Hotfix
+14. v0.26.7r2 — Public Alpha Readiness & Regression Baseline
+
+## Baseline raggiunta
+
+- 135 factory preset coerenti;
+- 229 target MIDI Learn;
+- sequencer 3–32 step con accordi e lunghezze non binarie;
+- test MIDI reale superato su note, velocity e Mod Wheel, senza input lag percepibile;
+- smoke test statico e browser introdotti;
+- nessuna modifica sonora nella build r2.
+
+## Prossimo passo naturale
+
+**v0.27.0-alpha.1 — Prima Public Alpha**
+
+Obiettivo: pubblicazione controllata, raccolta dei report da più browser/controller e correzione dei soli problemi bloccanti o ad alta priorità. Evitare nuovi grandi moduli prima della baseline alpha.

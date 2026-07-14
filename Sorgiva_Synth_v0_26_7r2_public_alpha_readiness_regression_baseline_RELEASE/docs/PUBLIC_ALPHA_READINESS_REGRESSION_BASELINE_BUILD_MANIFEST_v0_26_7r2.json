@@ -1,0 +1,85 @@
+{
+  "project": "Sorgiva Synth",
+  "version": "0.26.7r2-public-alpha-readiness-regression-baseline",
+  "displayVersion": "v0.26.7r2",
+  "buildName": "Public Alpha Readiness & Regression Baseline",
+  "buildDate": "2026-07-10",
+  "previousBuild": "0.26.7r1-export-filename-version-alignment-hotfix",
+  "scope": {
+    "audioEngineChanged": false,
+    "factoryPresetDataChanged": false,
+    "functionalChanges": [
+      "Preset Morph empty-slot startup/live-preview guard"
+    ],
+    "metadataChanges": [
+      "r2 version/export filename alignment",
+      "MIDI hardware baseline status"
+    ],
+    "toolingChanges": [
+      "static smoke test",
+      "Chromium/Playwright browser smoke test"
+    ],
+    "packagingChanges": [
+      "superseded root manifests removed",
+      "lean release package prepared"
+    ]
+  },
+  "metrics": {
+    "fullFileCount": 828,
+    "javascriptFiles": 24,
+    "jsonFiles": 169,
+    "factoryPresetCount": 135,
+    "midiLearnTargetCount": 229,
+    "midiLearnModes": {
+      "continuous": 106,
+      "toggle": 48,
+      "selector": 71,
+      "trigger": 4
+    },
+    "sequencerSteps": 32,
+    "virtualKeyboardKeys": 48,
+    "fullUncompressedBytes": 8431663,
+    "releaseFileCount": 73,
+    "releaseUncompressedBytes": 3738160,
+    "releaseJsonFiles": 1
+  },
+  "integrity": {
+    "audioFiles": {
+      "src/audio/audio-config.js": {
+        "oldSha256": "b075fcb74fce8ed26420addb3108cc7f86e3ddbe2c99a8c65df3fc19ffc51c31",
+        "newSha256": "b075fcb74fce8ed26420addb3108cc7f86e3ddbe2c99a8c65df3fc19ffc51c31",
+        "unchanged": true
+      },
+      "src/audio/audio-dsp.js": {
+        "oldSha256": "42836cfcec5a25f1ab0c732230bf832d521f5d8e963465a53523600936641d3d",
+        "newSha256": "42836cfcec5a25f1ab0c732230bf832d521f5d8e963465a53523600936641d3d",
+        "unchanged": true
+      },
+      "src/audio/audio-context.js": {
+        "oldSha256": "bad3e4992fa7e26746560953876db27b21a467000564f0a562c457fcfbb7dfeb",
+        "newSha256": "bad3e4992fa7e26746560953876db27b21a467000564f0a562c457fcfbb7dfeb",
+        "unchanged": true
+      }
+    },
+    "factoryPresetNormalizedOldSha256": "7fbdb9ae207f76dc6bb17ce6c206fdd5f059ccd6a41d8cc84150e65210e02e8e",
+    "factoryPresetNormalizedNewSha256": "7fbdb9ae207f76dc6bb17ce6c206fdd5f059ccd6a41d8cc84150e65210e02e8e",
+    "factoryPresetNormalizedDataUnchanged": true
+  },
+  "qa": {
+    "staticSmokeTest": "passed",
+    "browserSmokeTest": "passed",
+    "browserSmokeNavigationNote": "Managed Chromium blocked localhost/file navigation; identical HTML and scripts were loaded inline in memory for the test only.",
+    "audioContextState": "running",
+    "voiceCountDuringNote": 1,
+    "voiceCountAfterRelease": 0,
+    "heldNotesAfterRelease": 0,
+    "morphStartupStatus": "ok-empty-slots-no-preview-error",
+    "midiMissingTargets": 0,
+    "stepChordSelfTest": "passed",
+    "morphLiveAfterSlots": "passed-at-50-percent",
+    "morphableParameterCountInSmokePair": 88,
+    "morphRestoreAvailable": true,
+    "consoleErrors": 0,
+    "pageErrors": 0
+  }
+}

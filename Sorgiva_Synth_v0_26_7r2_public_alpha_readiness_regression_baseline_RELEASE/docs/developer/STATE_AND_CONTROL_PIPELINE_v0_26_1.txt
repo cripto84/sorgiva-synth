@@ -1,0 +1,59 @@
+Sorgiva Synth — State and Control Pipeline v0.26.1
+
+Pipeline base
+1. L'utente modifica un controllo HTML.
+2. src/ui/controls.js intercetta l'evento.
+3. controls.js aggiorna etichette/status e chiama SynthXState.setParameter.
+4. SynthXState salva il parametro in data.parameters e notifica i subscriber.
+5. main.js riceve la notifica e, salvo sorgenti runtime escluse, chiama SynthXAudio.onParameterChange.
+6. audio-context.js applica il cambio ai nodi audio, alle voci attive o alle strutture runtime.
+
+SynthXState
+state.js è il centro leggero dello stato globale. Contiene:
+- appVersion;
+- activeTab;
+- parameters;
+- performance;
+- motion;
+- sequencer;
+- modulationMatrix;
+- visuals;
+- MIDI/MIDI Learn;
+- tuning;
+- snapshot/subscribe/coerceValue/setParameter.
+
+Sorgenti meta importanti
+Le chiamate a setParameter possono avere meta.source. Alcune sorgenti sono informative e non devono rientrare nel motore audio come parametri sonori:
+- init
+- visuals-runtime
+- motion-runtime
+- midi-learn-runtime
+- tuning-runtime
+- modulation-matrix-runtime
+- arp-sanitize / arp-preset / sequencer-runtime, quando usate dai moduli relativi
+
+Regola runtime/preset
+Non tutto ciò che sta nella UI è un parametro da preset. Oscilloscopio, spettroscopio, MIDI Learn, MIDI Channel Filter, monitor runtime e metadati non devono essere salvati/applicati come timbro. Questa regola è stata blindata dopo v0.25.16a/v0.25.17.
+
+Controlli HTML
+Per ogni nuovo controllo evitare ID duplicati. L'ID deve essere stabile, leggibile e, se entra nel preset system, compatibile con le regole di preset-constants.js.
+
+Aggiungere un nuovo parametro semplice
+Passi consigliati:
+1. Aggiungere controllo HTML in index.html.
+2. Aggiungere default/liste parametro in audio-config.js se il parametro è audio/musicale.
+3. Verificare binding in controls.js.
+4. Implementare o estendere onParameterChange in audio-context.js solo se serve davvero.
+5. Decidere se il parametro è preset-safe o runtime/UI.
+6. Aggiornare docs/developer e release notes.
+7. Eseguire QA statica e smoke test.
+
+Aggiungere un parametro runtime/UI
+Se il controllo è solo preferenza o diagnostica:
+- non deve entrare nei preset sonori;
+- va escluso con RUNTIME_PRESET_IDS/EXCLUDED_IDS se necessario;
+- deve avere meta.source coerente;
+- non deve produrre side-effect su factory preset loading.
+
+Errore da evitare
+Non usare il caricamento preset come scorciatoia per ripristinare preferenze UI. Un preset sonoro deve modificare il suono, non spegnere strumenti di controllo, cambiare tab, alterare MIDI Learn o riscrivere monitor runtime.
