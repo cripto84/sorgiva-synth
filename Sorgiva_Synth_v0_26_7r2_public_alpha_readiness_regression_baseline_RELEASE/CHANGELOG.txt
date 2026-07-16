@@ -1,0 +1,17 @@
+# v0.26.7r2 — Public Alpha Readiness & Regression Baseline — 2026-07-10
+
+- Corretto il Preset Morph: il Live Preview non tenta più l'applicazione quando gli slot A e B sono vuoti.
+- Il cambio degli slot A/B può avviare il Live Preview soltanto quando entrambi sono disponibili.
+- Registrata la baseline MIDI hardware reale del 2026-07-09: note on/off, velocity, Mod Wheel e risposta senza latenza percepibile.
+- Aggiornati `state.js`, `midi.js`, KNOWN_LIMITS e ROADMAP per distinguere una baseline superata dalla compatibilità universale non ancora garantita.
+- Riallineati VERSION, metadata runtime, label UI ed export filename alla v0.26.7r2.
+- Riallineati i README correnti della cartella preset.
+- Rimossi dalla root i manifesti e patch README superati; la storia tecnica resta conservata in `docs`.
+- Aggiunti `tests/smoke_static.py` e `tests/smoke_browser.py`.
+- Nessuna modifica alla topologia audio, ai dati dei 135 factory preset o al comportamento timbrico.
+
+# v0.26.7r1 — Export Filename Version Alignment Hotfix — 2026-07-09
+
+- Corretto export filename dei factory preset, sequencer pattern e MIDI Learn mappings.
+- Aggiornati fallback metadata, versioni, runtime log e documentazione root.
+- Nessuna modifica al motore audio o ai preset sonori.

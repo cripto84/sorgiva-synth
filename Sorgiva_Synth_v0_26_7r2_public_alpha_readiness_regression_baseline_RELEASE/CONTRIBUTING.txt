@@ -1,0 +1,56 @@
+Sorgiva Synth — Contributing Guide
+===================================
+
+Sorgiva Synth is being prepared as an open source desktop/core web synthesizer.
+This guide defines the contribution rules for the public repository preparation stage.
+
+Licensing of contributions
+--------------------------
+
+By contributing to Sorgiva Synth, you agree that:
+
+- code contributions are provided under GNU GPLv3-only;
+- bundled factory preset/data contributions intended for the main program are provided under GNU GPLv3-only;
+- documentation contributions are provided under CC BY-SA 4.0, unless explicitly marked otherwise and accepted by the maintainer;
+- you have the right to submit the contribution.
+
+Preferred contribution style
+----------------------------
+
+- Keep changes small and reviewable.
+- Do not rewrite large files without a clear reason.
+- Do not touch `src/audio/audio-context.js` without a documented, blocking audio reason and regression QA.
+- Do not modify the factory preset library unless the task explicitly says so.
+- Keep long documentation under `docs/`.
+- Keep root files limited to repository-level files such as README, LICENSE, NOTICE, CONTRIBUTING and SECURITY.
+
+Required checks for code changes
+--------------------------------
+
+Before proposing a change, run or document:
+
+- `node --check` on all JavaScript files;
+- JSON validation for all `.json` files;
+- HTML link check for local scripts and styles;
+- duplicate HTML ID check;
+- factory preset count check;
+- factory preset unique ID/name check;
+- Step Sequencer UI count check when UI changes touch `index.html`;
+- preset load/runtime boundary check when preset code changes.
+
+Sound-design and preset contributions
+-------------------------------------
+
+Factory presets must be musical, safe in gain, clearly categorized and not added just to increase count.
+The old 290-preset factory library remains retired and must not be reintroduced.
+
+Pull request / patch notes should explain
+-----------------------------------------
+
+- what changed;
+- why it changed;
+- files touched;
+- whether audio behavior changed;
+- whether factory preset count changed;
+- known limitations;
+- pending real-browser/audio/MIDI tests.

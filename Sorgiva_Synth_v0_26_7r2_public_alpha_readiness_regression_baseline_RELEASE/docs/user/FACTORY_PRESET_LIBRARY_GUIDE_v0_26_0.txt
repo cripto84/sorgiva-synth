@@ -1,0 +1,246 @@
+Sorgiva Synth — Factory Preset Library Guide v0.26.0 / current update through v0.26.3e
+
+Stato della libreria
+La factory library attiva è stata ricostruita da zero. La vecchia factory library da 290 preset è ritirata e non reintrodotta.
+
+Conteggio totale factory preset corrente: 135.
+
+Gruppi musicali della rebuild:
+- Default Init: 1
+- Bass / Acid: 12
+- Leads: 12
+- Pads / Strings / Atmospheres: 14
+- Plucks / Keys / Organ Colors: 12
+- Bells / Metallic / Digital: 12
+- Winds / Brass / Formant / Vowel: 12
+- Arp / Sequence / Motion Ready: 12
+- Cinematic / Drone / Industrial / Experimental: 12
+- Percussive / Drums: 12
+- Filter Bass: 12
+- Guitar-like / Synth Guitars: 12
+
+Categorie browser reali e conteggi:
+- Acid / Resonant: 3
+- Arp / Sequence Ready: 12
+- Bass: 5
+- Bells / Metallic: 12
+- Brass / Horn-like: 4
+- Comb Metallic: 1
+- Dark Ambient: 4
+- Dirty Bass: 5
+- Experimental / Noise Texture: 3
+- Filter Bass: 12
+- FX-heavy Cinematic: 3
+- Guitar-like / Synth Guitars: 12
+- Formant / Vowel: 5
+- Hammond-like / Organ Color: 3
+- Industrial Drone: 4
+- Init: 1
+- Keys / Electric Piano-like: 5
+- Lead: 10
+- Pad: 4
+- Percussive / Drums: 12
+- Phaser / Ensemble Pad: 3
+- Pluck: 4
+- Resonator Lead: 1
+- Sci-Fi Sweep: 1
+- Strings / Ensemble: 2
+- Woodwinds / Flutes / Reed-like: 4
+
+Preset per categoria browser:
+Acid / Resonant (3)
+- Acid Narrow Line
+- Resonant Wet Acid
+- Acid Needle Lead
+
+Arp / Sequence Ready (12)
+- Arp Bass
+- Arp Pluck
+- Arp Lead
+- Sequence Bass
+- Sequence Pluck
+- Clocked Pulse
+- Gate Motion
+- Pulse Motion
+- Sync Motion Lead
+- Rhythmic Digital Key
+- Acid Sequence
+- Dark Step Drone
+
+Bass (5)
+- Sub Foundation Bass
+- Round Mono Bass
+- Saw Rubber Bass
+- Square Root Bass
+- PWM Pulse Bass
+
+Bells / Metallic (12)
+- Bell
+- Digital Bell
+- FM Bell
+- Ring Bell
+- Metallic Pluck
+- Glass Hit
+- Ice Mallet
+- Alien Chime
+- Digital Mallet
+- Hollow Metallic Key
+- Dark Bell
+- Broken Digital Bell
+
+Brass / Horn-like (4)
+- Synthetic Brass
+- Soft Brass Pad
+- Horn-like Lead
+- Brass Stab
+
+Comb Metallic (1)
+- Metallic Drone
+
+Dark Ambient (4)
+- Dark Slow Pad
+- Slow Motion Texture
+- Dark Ambient Bed
+- Horror Pad
+
+Dirty Bass (5)
+- Dirty Tube Bass
+- FM Grit Bass
+- Ring Iron Bass
+- Sync Teeth Bass
+- Machine Pulse Bass
+
+Experimental / Noise Texture (3)
+- Noise Texture
+- Experimental Lead
+- Broken Synth
+
+FX-heavy Cinematic (3)
+- Deep Hall Pad
+- Space FX
+- Cinematic Rise Pad
+
+Formant / Vowel (5)
+- Formant Lead
+- Vowel Sweep
+- Synthetic Choir-ish
+- Nasal Formant Key
+- Void Choir Texture
+
+Filter Bass (12)
+- Resonant Lowpass Filter Bass
+- Berlin Filter Pulse Bass
+- Notch Motion Filter Bass
+- Bandpass Rubber Filter Bass
+- Keytrack Filter Bass
+- Vowel Growl Filter Bass
+- Dark Dub Filter Bass
+- Industrial Filtered Bass
+- Envelope Punch Filter Bass
+- Formant Sub Filter Bass
+- Sync Filter Bite Bass
+- Rounded Techno Filter Bass
+
+Guitar-like / Synth Guitars (12)
+- Muted Synth Guitar Pluck
+- Bright Pick Synth Guitar
+- Chorus String Synth Guitar
+- Dirty Synth Guitar Stab
+- Metallic String Pluck
+- Palm Mute Pulse Guitar
+- Cyber Guitar Lead
+- Mediterranean Electric Pluck
+- Pseudo Bass Guitar
+- Resonant String Synth
+- Industrial Guitar-ish Stab
+- Nylon-ish Synth Pluck
+
+Hammond-like / Organ Color (3)
+- Organ Color
+- Percussive Organ
+- Dark Organ / Drone Organ
+
+Industrial Drone (4)
+- Drone Foundation
+- Industrial Dark Pad
+- Industrial Drone Core
+- Machine Pulse
+
+Init (1)
+- Default Init
+
+Keys / Electric Piano-like (5)
+- Soft Synth Key
+- Bright Synth Key
+- Electric Piano-ish
+- FM Key Color
+- Ring Key Color
+
+Lead (10)
+- Classic Razor Lead
+- Velvet Mono Lead
+- Saw Torch Lead
+- Square Bite Lead
+- PWM Ribbon Lead
+- Sync Flame Lead
+- FM Glass Edge Lead
+- Aftertouch Cry Lead
+- Mod Wheel Wide Lead
+- Industrial Hook Lead
+
+Pad (4)
+- Warm Analog Pad
+- Soft Choir-ish Pad
+- Glass Atmosphere
+- Breath Atmosphere
+
+Percussive / Drums (12)
+- Synth Kick Deep Core
+- Punch Kick Click
+- Analog Snare Noise Body
+- Electro Clap Stack
+- Closed Hat Noise Cut
+- Open Hat Air Slice
+- Synthetic Tom Round
+- Rimshot Edge Ping
+- Cowbell FM Metal
+- Shaker Noise Motion
+- Industrial Hit Iron
+- Chip Perc Square Tick
+
+Phaser / Ensemble Pad (3)
+- Wide Detuned Pad
+- Phaser Space Pad
+- Mediterranean Space Pad
+
+Pluck (4)
+- Short Synth Pluck
+- Warm Pluck
+- Digital Pluck
+- Glass Pluck
+
+Resonator Lead (1)
+- Ring Silver Lead
+
+Sci-Fi Sweep (1)
+- Sci-Fi Sweep
+
+Strings / Ensemble (2)
+- Ensemble String Pad
+- Synthetic Strings
+
+Woodwinds / Flutes / Reed-like (4)
+- Reed-like Synth
+- Flute-like Air
+- Breath Lead
+- Dark Reed Drone
+
+Regole importanti
+- I factory preset non devono essere modificati in-place dall'utente.
+- Per partire da un factory preset e creare un suono personale, usa `Salva copia utente`.
+- Arpeggiator e Step Sequencer restano OFF di default nei factory preset.
+- I factory preset possono essere pensati per funzionare bene con Arp/Sequencer, ma non devono accenderli automaticamente.
+- Scope e Spectrum non sono parte del suono e non devono essere spenti dal caricamento preset.
+
+Nota sui gruppi e sulle categorie
+I gruppi musicali descrivono la roadmap creativa della rebuild. Le categorie browser sono invece le categorie effettive usate dal menu di filtro nella UI. Per questo i gruppi alti come `Bass / Acid` possono essere distribuiti in categorie browser più precise come `Bass`, `Dirty Bass` e `Acid / Resonant`.

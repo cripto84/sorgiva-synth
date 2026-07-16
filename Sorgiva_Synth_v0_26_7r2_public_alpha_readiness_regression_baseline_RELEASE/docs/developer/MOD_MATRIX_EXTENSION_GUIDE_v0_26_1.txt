@@ -1,0 +1,65 @@
+Sorgiva Synth — Mod Matrix Extension Guide v0.26.1
+
+Stato attuale
+La Mod Matrix ha 8 slot. Ogni slot usa:
+- enabled;
+- source;
+- destination;
+- amount;
+- index.
+
+File coinvolti
+- src/modulation/modulation-matrix.js
+- src/audio/audio-config.js
+- src/audio/audio-context.js
+- src/ui/controls.js
+- index.html
+- src/state/state.js
+- src/presets/presets.js quando il parametro è preset-safe.
+
+Sorgenti tipiche
+- LFO 1/2/3;
+- velocity;
+- filter envelope;
+- performance/controller sources dove già integrate;
+- aftertouch/expression/breath/foot se supportate nel flusso corrente.
+
+Destinazioni tipiche
+- cutoff/filtro;
+- advanced filter;
+- filter drive;
+- pan;
+- volume;
+- pitch;
+- altre destinazioni solo se implementate davvero nel motore.
+
+Aggiungere una sorgente
+1. Definire valore normalizzato e range.
+2. Aggiornare UI se serve.
+3. Aggiornare modulation-matrix.js.
+4. Aggiornare audio-context.js solo se il motore deve usare direttamente la sorgente.
+5. Testare preset loading, Randomizer, Morph, A/B Compare.
+
+Aggiungere una destinazione
+1. Verificare che esista un parametro audio reale.
+2. Definire mapping percentuale/bipolare.
+3. Aggiungere destinazione nei menu UI.
+4. Implementare applicazione nel motore o nel modulo corretto.
+5. Evitare destinazioni che moltiplicano gain senza clamp.
+6. Documentare range e limiti.
+
+Regole di sicurezza
+- Nessun amount deve generare valori fuori clamp.
+- Nessuna destinazione deve causare feedback incontrollato.
+- Pitch e volume richiedono smoothing prudente.
+- Cutoff e resonance richiedono clamp musicali.
+- La Mod Matrix non deve cambiare preferenze runtime/UI.
+
+QA minima
+- slot 1-8 visibili;
+- enable/disable per slot;
+- source/destination/amount salvabili se preset-safe;
+- preset load non crea slot fantasma;
+- Morph/A-B non rompono mapping;
+- MIDI performance preservata;
+- nessun crash con destinazione non supportata.
