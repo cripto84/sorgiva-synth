@@ -1,6 +1,4 @@
-[README.md](https://github.com/user-attachments/files/30098555/README.md)
-# sorgiva-synth
-Open-source WebAudio synthesizer for sound design, experimentation and learning, with MIDI, modulation, effects, sequencer, arpeggiator and preset tools.
+[README.md](https://github.com/user-attachments/files/30098993/README.md)
 # Sorgiva Synth
 
 **Open-source WebAudio synthesizer for sound design, experimentation and learning.**
