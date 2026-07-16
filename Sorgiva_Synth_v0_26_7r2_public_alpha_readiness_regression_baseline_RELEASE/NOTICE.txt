@@ -1,8 +1,0 @@
-Sorgiva Synth v0.26.7r2 — Public Alpha Readiness & Regression Baseline
-
-Questa build consolida la candidata public alpha senza modificare il motore sonoro o i dati timbrici factory.
-Corregge l'avvio del Preset Morph con slot A/B vuoti, registra la baseline MIDI hardware reale,
-riallinea i documenti correnti e introduce smoke test automatici ripetibili.
-
-Copyright (C) 2026 Giuseppe Tararà.
-Distribuzione secondo i termini indicati in LICENSE e DOCUMENTATION_LICENSE.txt.

@@ -1,9 +1,0 @@
-Sorgiva Synth v0.26.7r2 — Root Cleanup Manifest
-
-Questa build non deve contenere nella root i seguenti file superati:
-
-- DELETE_MANIFEST_v0_26_7p.txt
-- DELETE_MANIFEST_v0_26_7r1.txt
-- PATCH_README_v0_26_7r1.txt
-
-Le note storiche restano disponibili nella struttura `docs` e nel CHANGELOG.
