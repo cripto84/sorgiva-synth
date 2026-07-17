@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/cripto84/sorgiva-synth/security/policy
+    about: Read the private reporting instructions. Do not disclose vulnerabilities in a public issue.
+  - name: Usage and troubleshooting
+    url: https://github.com/cripto84/sorgiva-synth/blob/main/SUPPORT.md
+    about: Check the support guide before opening a bug report.

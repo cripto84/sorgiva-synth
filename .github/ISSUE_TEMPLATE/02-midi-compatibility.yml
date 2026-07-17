@@ -1,0 +1,154 @@
+name: MIDI compatibility report
+description: Report a successful test, limitation or bug with a MIDI device
+title: "[MIDI]: "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        MIDI reports are useful even when everything works. They help build a real browser, OS and controller compatibility matrix.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-report checks
+      options:
+        - label: I launched Sorgiva Synth through localhost or HTTPS.
+          required: true
+        - label: I granted MIDI permission in the browser.
+          required: true
+        - label: This report contains no private or security-sensitive information.
+          required: true
+
+  - type: dropdown
+    id: result
+    attributes:
+      label: Overall result
+      options:
+        - Fully working
+        - Partially working
+        - Device detected but notes do not work
+        - Device not detected
+        - Regression from an earlier build
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Sorgiva Synth version
+      placeholder: "Example: v0.26.7r2"
+    validations:
+      required: true
+
+  - type: input
+    id: operating-system
+    attributes:
+      label: Operating system
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and exact version
+    validations:
+      required: true
+
+  - type: input
+    id: controller
+    attributes:
+      label: Controller or MIDI interface
+      placeholder: "Manufacturer and exact model"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: connection
+    attributes:
+      label: Connection
+      options:
+        - USB
+        - 5-pin MIDI through an interface
+        - Bluetooth MIDI
+        - Virtual MIDI port
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: channel
+    attributes:
+      label: MIDI channel and Sorgiva channel filter
+      placeholder: "Example: controller channel 1, filter Omni"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: messages
+    attributes:
+      label: Messages tested
+      options:
+        - label: Note On
+        - label: Note Off
+        - label: Velocity
+        - label: Pitch Bend
+        - label: Mod Wheel
+        - label: Sustain pedal
+        - label: Channel Aftertouch
+        - label: Expression CC11
+        - label: Breath CC2
+        - label: Foot Controller CC4
+        - label: MIDI Clock
+        - label: MIDI Learn — Continuous
+        - label: MIDI Learn — Toggle
+        - label: MIDI Learn — Selector
+        - label: MIDI Learn — Trigger
+
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Result for each tested control
+      placeholder: |
+        Notes: working
+        Velocity: working
+        Mod Wheel: received but...
+        Sustain: not tested
+    validations:
+      required: true
+
+  - type: dropdown
+    id: latency
+    attributes:
+      label: Perceived input latency
+      options:
+        - None perceived
+        - Low
+        - Noticeable
+        - Severe
+        - Not applicable
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps for any problem
+    validations:
+      required: false
+
+  - type: textarea
+    id: monitor
+    attributes:
+      label: MIDI monitor and console details
+      description: Include the last-event display or relevant console output.
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional notes
+      description: Mention firmware, drivers, hubs, adapters or unusual setup details.
+    validations:
+      required: false
