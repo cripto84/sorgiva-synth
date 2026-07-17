@@ -1,0 +1,142 @@
+name: Factory preset feedback
+description: Evaluate a factory preset's sound, level, playability or usefulness
+title: "[Preset]: "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Preset feedback should be specific and listening-based. The goal is a smaller, stronger and better balanced library—not a larger preset count.
+
+  - type: input
+    id: version
+    attributes:
+      label: Sorgiva Synth version
+      placeholder: "Example: v0.26.7r2"
+    validations:
+      required: true
+
+  - type: input
+    id: preset
+    attributes:
+      label: Exact preset name
+    validations:
+      required: true
+
+  - type: input
+    id: category
+    attributes:
+      label: Factory category
+    validations:
+      required: true
+
+  - type: dropdown
+    id: feedback-type
+    attributes:
+      label: Main feedback type
+      options:
+        - Excellent reference preset
+        - Volume too low
+        - Volume too high
+        - Attack or transient problem
+        - Sustain or Release problem
+        - Click, pop or artifact
+        - Too similar to another preset
+        - Weak musical identity
+        - Useful but needs adjustment
+        - CPU-heavy
+        - Velocity or expressive-control problem
+        - Browser-specific problem
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: operating-system
+    attributes:
+      label: Operating system
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and exact version
+    validations:
+      required: true
+
+  - type: input
+    id: monitoring
+    attributes:
+      label: Monitoring setup
+      placeholder: "Headphones, speakers or audio interface"
+    validations:
+      required: false
+
+  - type: textarea
+    id: listening-test
+    attributes:
+      label: Listening test
+      description: Describe low, middle and high notes, chords, release and repeated notes.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: musical-usefulness
+    attributes:
+      label: Musical usefulness
+      options:
+        - 1 — not useful
+        - 2 — limited
+        - 3 — usable
+        - 4 — strong
+        - 5 — excellent
+    validations:
+      required: true
+
+  - type: dropdown
+    id: perceived-level
+    attributes:
+      label: Perceived level compared with nearby presets
+      options:
+        - Much too low
+        - Slightly low
+        - Balanced
+        - Slightly high
+        - Much too high
+    validations:
+      required: true
+
+  - type: textarea
+    id: expressive-response
+    attributes:
+      label: Velocity, Mod Wheel, aftertouch or pedal response
+      description: State what was tested and whether the response was musically useful.
+    validations:
+      required: false
+
+  - type: textarea
+    id: comparison
+    attributes:
+      label: Similar preset or useful comparison
+      description: Name any preset that sounds too similar or provides a good reference.
+    validations:
+      required: false
+
+  - type: textarea
+    id: recommendation
+    attributes:
+      label: Recommended change
+      description: Suggest a focused adjustment rather than a complete redesign when possible.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Confirmation
+      options:
+        - label: I tested at a safe monitoring level.
+          required: true
+        - label: I did not modify the preset before evaluating its factory state.
+          required: true
