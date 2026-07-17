@@ -1,0 +1,10 @@
+# Repository-level community and metadata files
+/.github/ @cripto84
+/README.md @cripto84
+/CONTRIBUTING.md @cripto84
+/CODE_OF_CONDUCT.md @cripto84
+/SECURITY.md @cripto84
+/LICENSE @cripto84
+
+# Current public source snapshot
+/Sorgiva_Synth_v0_26_7r2_public_alpha_readiness_regression_baseline_RELEASE/ @cripto84
