@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/30098993/README.md)
 # Sorgiva Synth
 
 **Open-source WebAudio synthesizer for sound design, experimentation and learning.**
@@ -180,6 +179,20 @@ python3 tests/smoke_browser.py
 ```
 
 These tests do not replace human listening, CPU benchmarking or real-controller testing.
+
+## Support Sorgiva Synth
+
+Sorgiva Synth is free and open source. Voluntary contributions help sustain its development in the broadest practical sense: coding and maintenance, research, testing on real browsers and MIDI hardware, documentation, accessibility, project equipment, infrastructure, distribution, communication and the other costs required to keep the instrument alive, independent and publicly available.
+
+A portion of the available resources will also be dedicated to **Synth Sospeso**, an initiative inspired by the Italian tradition of the *caffè sospeso*. Although Sorgiva Synth itself is free, some people may still be unable to play it because they lack a basic MIDI controller, an accessible input method, adapters, cables, essential audio equipment or the shipping needed to receive those items. Synth Sospeso is intended to remove these specific practical barriers for users, students, small educational settings or musicians with limited means.
+
+[**Support Sorgiva Synth through PayPal →**](https://paypal.me/criptocripto)
+
+Donors who particularly wish to support the initiative may write **SYNTH SOSPESO** in the PayPal note. No fixed percentage is promised at this stage, but Synth Sospeso is an explicit part of the funding purpose and its allocations and expenses will be reported separately.
+
+**Every expense paid wholly or partly with contributed funds will be recorded and publicly reported**, distinguishing broad project-development costs from Synth Sospeso costs, while protecting the personal information of donors and recipients.
+
+Read [FUNDING.md](FUNDING.md) for the complete policy and [FUNDING_TRANSPARENCY.md](FUNDING_TRANSPARENCY.md) for the public reporting format. A contribution does not purchase a licence, product, service, priority support, roadmap control or automatic eligibility for Synth Sospeso assistance.
 
 ## Contribution principles
 
