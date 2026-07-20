@@ -226,6 +226,29 @@ Forks may use the GPL-licensed code, but must not present modified builds as off
 
 See [LICENSE](LICENSE), [DOCUMENTATION_LICENSE.md](DOCUMENTATION_LICENSE.md) and [NOTICE.md](NOTICE.md).
 
+## Contacts and community
+
+For direct contact, informal discussion and community updates:
+
+* **Project maintainer on Telegram:** [@Criptoalt25](https://t.me/Criptoalt25)
+* **Sorgiva Synth Telegram group:** [Join the community](https://t.me/+Umi9x7F6tYEzY2Q0)
+
+The Telegram group is open to users, musicians, sound designers, testers, developers and anyone interested in following or contributing to the project.
+
+You are welcome to:
+
+* share impressions and musical results;
+* discuss sound design and possible uses of Sorgiva Synth;
+* suggest improvements;
+* report initial observations;
+* ask for general help;
+* meet other users and alpha testers.
+
+For reproducible bugs, compatibility reports and feature proposals, please use the structured GitHub Issue templates so that the information remains public, searchable and useful to the project.
+
+Security vulnerabilities or sensitive technical information must not be posted in the Telegram group or in public GitHub Issues. Please follow the private procedure described in `SECURITY.md`.
+
+
 ## Maintainer
 
 Sorgiva Synth is created and maintained by **Giuseppe Tararà** (`@cripto84`).
