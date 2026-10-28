@@ -1,0 +1,5 @@
+Sorgiva Synth v0.26.7r3 — Audio, Matrix & Tempo Fixes
+Copyright (C) 2026 Giuseppe Tararà.
+Correzioni live Mod Matrix e de-click, BPM globale e MIDI Step Input.
+Dati dei 135 factory preset preservati.
+Distribuzione secondo LICENSE e DOCUMENTATION_LICENSE.txt.
