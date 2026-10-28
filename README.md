@@ -26,7 +26,7 @@ multiple filters, five-band EQ, effects, MIDI input/MIDI Learn/MIDI Clock, seque
 
 1. Download [ESSENZIALE](./downloads/Sorgiva_Synth_v0_27_0_beta1rc1_ESSENZIALE.zip), the runnable package;
    or use the source tree at this repository's root.
-2. Extract the complete archive, then open `index.html` in a modern Chromium desktop browser.
+2. Extract your chosen ZIP fully, then open `index.html` in a modern Chromium desktop browser.
 3. Set a moderate listening volume, select **Sblocca Audio / Unlock Audio**, then load **Default Init**.
 4. In **Performance → Adaptive Performance**, inspect the initial **AUTO** resource profile.
 5. To use physical WebMIDI, prefer a secure origin (HTTPS or localhost), grant permissions in the browser,
@@ -42,8 +42,8 @@ python3 -m http.server 8000
 ## Downloads and documentation
 
 - [ESSENZIALE — runnable beta candidate](./downloads/Sorgiva_Synth_v0_27_0_beta1rc1_ESSENZIALE.zip)
-- **COMPLETO:** archive provided by the maintainer; large binary upload to this repository is pending.
-- **Manuale utente v3.0 — BOZZA INTEGRALE:** available as a separate draft; the large PDF is not yet uploaded to GitHub. The [historical manual v2.1](./Sorgiva_Synth_Master_Editoriale_Manuale_Utente_v2_1.pdf) remains available but is **outdated**.
+- [COMPLETO — beta candidate, technical documents and historical QA material](./Sorgiva_Synth_v0_27_0_beta1rc1_COMPLETO.zip) (repository root; use ESSENZIALE for normal playing).
+- [Manuale utente v3.0 — Beta1 RC1, integral aligned working draft (PDF)](./Sorgiva_Synth_Manuale_v3_0_Beta1_RC1_RIALLINEATO.pdf) (repository root; **not** the final verified manual). The [historical manual v2.1](./Sorgiva_Synth_Master_Editoriale_Manuale_Utente_v2_1.pdf) remains available but is **outdated**.
 - [Release notes](./RELEASE_NOTES_v0_27_0_beta1rc1.md)
 - [Beta testing checklist](./BETA1_RC1_COLLAUDO.md)
 - [Beta QA / test scope](./BETA1_RC1_COLLAUDO.md)
@@ -72,8 +72,11 @@ legacy SynthX-file variants remain to be verified. Contributors can use the stru
 | Path | Content |
 |---|---|
 | `index.html`, `styles/`, `src/` | Current runnable application source |
-| `docs/` | Technical notes; manual v3.0 upload pending |
-| `downloads/` | ESSENZIALE original ZIP (COMPLETO upload pending) |
+| `docs/` | Technical notes about the current Beta1 candidate |
+| `downloads/` | ESSENZIALE runnable ZIP |
+| `Sorgiva_Synth_v0_27_0_beta1rc1_COMPLETO.zip` | COMPLETO distribution ZIP (repository root) |
+| `Sorgiva_Synth_Manuale_v3_0_Beta1_RC1_RIALLINEATO.pdf` | Aligned manual v3.0 working draft (repository root) |
+| `Sorgiva_Synth_Master_Editoriale_Manuale_Utente_v2_1.pdf` | Historical manual v2.1 (outdated) |
 | `.github/` | Contribution and feedback templates |
 | `LICENSE`, `DOCUMENTATION_LICENSE.md`, `TRADEMARK_NOTICE.md` | Licensing and identity rules |
 
