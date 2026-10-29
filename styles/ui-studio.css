@@ -1,0 +1,76 @@
+/* Sorgiva UI Studio: presentation only. Original theme is the fallback. */
+:root{--bg:#0c1215;--panel:#151f24;--panel-2:#1a292e;--text:#edf5f3;--muted:#b0c4c6;--accent:#76dfc5;--accent-2:#efc781;--line:#385157;--focus:#ffe2a0;--shadow:0 8px 24px #0003;--ui-gap:16px;--ui-radius:12px}
+body{background:var(--bg);font-size:14px;line-height:1.5}
+button,input,select,textarea{accent-color:var(--accent)}
+.btn,.tab{background:#1b2b31;border-radius:7px;min-height:36px}
+.btn:hover,.tab:hover{background:#294149}
+.btn:focus-visible,.tab:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.card{background:var(--panel);border-radius:var(--ui-radius);box-shadow:none;border-color:var(--line)}
+.card-hd{border-bottom:1px solid #2d4248;padding-bottom:10px;margin-bottom:14px}
+.card-hd h3{font-size:15px;letter-spacing:.02em}
+input[type=range]{min-height:30px;cursor:pointer}
+select,input[type=number],input[type=search],input[type=text],textarea{background:#0f191d;color:var(--text);border:1px solid var(--line);border-radius:6px;min-height:36px;max-width:100%}
+label{font-size:13px}label span[id$=-val]{color:var(--accent);font-variant-numeric:tabular-nums}
+.status-pill,.badge,.placeholder-badge{background:#122126;border-color:var(--line)}
+.tab.active{background:#24443e;border-color:var(--accent);color:#d6fff3}
+/* Phase 03: compact shell, permanent Panic and a collapsible keyboard. */
+.topbar{display:flex;flex-wrap:wrap;padding:12px 24px;gap:10px 20px;background:#0e181c;z-index:70}
+.brand{display:block;flex:1;min-width:180px}.brand h1{font-weight:650;letter-spacing:-.04em;font-size:24px}.subtitle{font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.topbar .right{gap:6px}.topbar .badge{font-size:10px}.studio-master{width:170px;margin:0!important;display:block!important}.studio-master input{width:100%}.studio-master label{display:flex;justify-content:space-between}
+.tabs{top:var(--studio-header-height,80px);padding:8px 24px;gap:6px;background:#101b20;z-index:60}.tab{font-size:12px;padding:8px 12px}
+.global-tempo{padding:8px 24px!important;gap:8px!important;font-size:12px}.global-tempo>small{display:none}
+.app{width:min(1600px,calc(100% - 48px));margin:22px auto}.panel>h2{font-size:23px;font-weight:500;letter-spacing:-.03em;margin-bottom:12px}
+.studio-guide{font-size:12px;color:var(--muted);margin:0 0 12px}.studio-guide summary{cursor:pointer}.studio-guide .panel-note{margin-top:8px}
+.keyboard-dock{background:#0e181c;padding:8px 24px!important;border-top:1px solid var(--line);z-index:65;max-height:45vh;overflow:auto}
+.keyboard-header{max-width:none!important;margin:0 auto 6px!important;align-items:center}.keyboard-header p{display:none}.keyboard-header h3{font-size:12px!important}
+.keyboard-body{max-width:none!important;gap:6px!important}.keyboard-body[hidden]{display:none!important}
+.keyboard-dock .visual-panel{padding:5px!important}.keyboard-dock .visual-canvas{height:40px!important}.keyboard-dock .visual-status{font-size:10px!important}.keyboard-dock .visual-panel h3{font-size:11px}
+.keyboard-host{height:100px!important;min-height:100px!important}.keyboard-host .key{height:100px}.keyboard-host .key.black{height:62px}
+body{padding-bottom:calc(var(--studio-dock-height,220px) + 24px)}
+@media(max-width:800px){.topbar{padding:10px 14px}.topbar .right{justify-content:flex-start}.studio-master{width:140px}.tabs{padding:8px 14px}.app{width:calc(100% - 28px)}.global-tempo{padding:8px 14px!important}.keyboard-dock{position:relative;max-height:none;padding:12px 14px!important}.keyboard-host{overflow-x:auto}body{padding-bottom:0}.topbar{position:relative}.tabs{top:0}.grid-osc,.grid-lfo,.grid-env{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:520px){.grid-osc,.grid-lfo,.grid-env{grid-template-columns:1fr!important}.topbar .right{width:100%}.topbar .badge{display:none}.studio-master{width:100%}.tabs{position:relative}.card{min-width:0}.keyboard-dock{position:relative}.keyboard-header{flex-wrap:wrap}}
+/* Phase 04: two views, the very same controls and listeners. */
+.studio-modes{display:flex;gap:4px;margin-top:10px}.studio-modes .btn{font-size:11px;min-height:30px;padding:4px 12px}.studio-modes [aria-pressed=true]{background:var(--accent);color:#102922;border-color:var(--accent)}
+.studio-performance{width:min(1600px,calc(100% - 48px));margin:22px auto}.studio-performance[hidden],#app[hidden]{display:none!important}
+.studio-eyebrow{font-size:10px;letter-spacing:.16em;color:var(--accent)}.studio-intro h2{font-size:30px;font-weight:500;letter-spacing:-.04em;margin:4px 0}.studio-intro p{color:var(--muted);margin:0 0 20px}
+.studio-performance-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px;align-items:start}.studio-performance-grid>div{min-width:0;display:grid;gap:16px}
+.studio-performance .factory-preset-grid{grid-template-columns:1fr 1fr!important}.studio-performance .factory-preset-grid .form-row:has(#factory-preset){grid-column:1/-1}.studio-performance #factory-preset{min-height:190px}.studio-performance .factory-preset-card>p,.studio-performance .preset-browser-pills{display:none}.studio-performance .factory-preset-card{margin:0}.studio-performance .preset-actions{gap:6px;flex-wrap:wrap}.studio-save .btn{margin:4px 5px 4px 0}.studio-performance .card{padding:16px}
+.panel{animation:none}
+@media(max-width:1000px){.studio-performance-grid{grid-template-columns:1fr 1fr}.studio-browser{grid-column:1/-1}.studio-performance #factory-preset{min-height:150px}}
+@media(max-width:600px){.studio-performance{width:calc(100% - 28px)}.studio-performance-grid{grid-template-columns:1fr}.studio-performance .factory-preset-grid{grid-template-columns:1fr!important}.studio-intro h2{font-size:26px}}
+.studio-tone>.card:not(.studio-quick-fx),.studio-shape>.card:not(.studio-save){order:-1}
+body[data-studio-mode=performance] .tabs,body[data-studio-mode=performance] .global-tempo{display:none}
+.visuals-rack[hidden]{display:none!important}
+.studio-performance .factory-preset-grid .form-row:has(#factory-sort),.studio-performance .factory-preset-grid .form-row:has(#factory-favorites-only){order:2}
+.studio-performance .factory-preset-grid{gap:4px 12px}.studio-performance .form-row{margin:6px 0}.studio-performance .card-hd{margin-bottom:8px}
+.studio-save .btn:last-child{margin-top:10px}
+/* Phase 05: source blocks, accessible advanced controls, illustrative waves. */
+.grid-osc{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.grid-lfo{gap:16px}
+.studio-graph{margin:10px 0 14px;padding:8px;background:#0b1519;border:1px solid #2d4248;border-radius:7px}.studio-graph svg{display:block;width:100%;height:68px}.studio-gridline{stroke:#294047;stroke-width:1;fill:none}.studio-curve{stroke:var(--accent);stroke-width:2;fill:none;vector-effect:non-scaling-stroke}.studio-graph figcaption{color:var(--muted);font-size:10px;line-height:1.4;margin-top:5px}
+.studio-advanced{border-top:1px solid var(--line);margin-top:12px;padding-top:10px}.studio-advanced summary{color:var(--accent-2);cursor:pointer;font-size:12px}.studio-patch-name{display:block;font-size:11px;color:var(--accent);margin-top:6px}
+@media(min-width:1500px){.grid-osc{grid-template-columns:repeat(4,minmax(0,1fr))}}
+/* Phase 07: explicit routes and bipolar amounts; original eight slots remain. */
+.studio-routes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:16px 0}.studio-route{border:1px solid var(--line);border-left:3px solid #53666b;border-radius:6px;padding:8px 12px;font-size:12px;color:var(--muted);background:#101b20}.studio-route[data-active=true]{border-left-color:var(--accent);color:var(--text)}
+.modmat-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:16px!important}.modmat-card[data-active=true]{border-color:var(--accent)}.modmat-card .card-hd{flex-wrap:wrap}.studio-bipolar{height:6px;background:linear-gradient(90deg,#23333a 49.5%,#a9babb 49.5%,#a9babb 50.5%,#23333a 50.5%);position:relative;border-radius:3px}.studio-bipolar span{position:absolute;height:100%;background:var(--accent)}.studio-bipolar span[data-negative=true]{background:var(--accent-2)}
+@media(max-width:1100px){.modmat-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}@media(max-width:600px){.modmat-grid,.studio-routes{grid-template-columns:1fr!important}}
+/* Phase 08: exact existing global order; protection gets its own visual identity. */
+.studio-fx-chain{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0 20px}.studio-fx-chip:not(:last-child)::after{content:' →';color:var(--muted);margin-left:8px}.studio-fx-chip[data-active=true]{border-color:var(--accent);color:var(--accent)}.studio-creative-fx{border-left:3px solid #53666b}.studio-creative-fx[data-active=true]{border-left-color:var(--accent)}.studio-safety{border:1px solid var(--accent-2)!important;background:#24251e!important}.studio-safety .card-hd h3{color:var(--accent-2)}
+/* Phase 09: note editing first, chord voicing progressively disclosed. */
+.studio-motion{display:flex;gap:16px;flex-wrap:wrap;background:#1d2928;border:1px solid #527068;border-radius:9px;padding:12px 16px;margin-bottom:16px}.studio-motion strong{color:var(--accent-2)}.studio-motion span{font-size:12px;color:var(--muted)}
+.seq-steps-grid{grid-template-columns:repeat(8,minmax(135px,1fr))!important;gap:8px!important}.seq-step{background:#142228!important;border-radius:8px!important;min-width:0}.seq-step header{border-bottom:2px solid #456267;padding-bottom:8px;margin-bottom:10px}.seq-step.is-current{background:#21483e!important;outline:2px solid var(--accent);box-shadow:none!important}.seq-step-controls select{min-width:0;width:100%;font-size:12px}.seq-step-controls label{font-size:11px}.studio-step-details{grid-column:1/-1;font-size:11px;border-top:1px solid var(--line);padding-top:8px}.studio-step-details summary{cursor:pointer;color:var(--accent-2)}.studio-step-advanced{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px;margin-top:8px}.studio-step-advanced input{width:100%;min-width:0}
+@media(max-width:1250px){.seq-steps-grid{grid-template-columns:repeat(4,minmax(135px,1fr))!important}}@media(max-width:650px){.seq-steps-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+/* Phase 10: MIDI at hand and explicit paths to advanced tools. */
+.studio-jumpbar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 16px}.studio-jumpbar .btn{font-size:12px;color:var(--accent)}.studio-card-help{margin:12px 0 0;font-size:12px;color:var(--muted);border-top:1px solid #30454a;padding-top:8px}.studio-card-help summary{cursor:pointer}.studio-card-help p{margin:10px 0}
+#studio-midi-status{font-size:11px}.studio-routes{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:900px){.studio-routes{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.studio-routes{grid-template-columns:1fr}}
+/* Phase 11: resilient responsive layouts and visible keyboard focus. */
+.studio-fx-enable{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:10px 0;color:var(--muted);font-size:12px}
+.grid-env{grid-template-columns:repeat(3,minmax(0,1fr))}.factory-preset-grid{grid-template-columns:1fr 1fr 1fr!important;align-items:start!important}.factory-preset-grid .form-row:has(#factory-preset){grid-column:1/-1}.factory-preset-grid .form-row:has(#factory-sort){order:2}.factory-preset-grid .form-row:has(#factory-favorites-only){order:3}#factory-preset{width:100%}
+.card,.form-row,.grid-env>*{min-width:0}input,select,textarea{max-width:100%}.status-line,.status-pill,.preset-info{overflow-wrap:anywhere}.card-hd{flex-wrap:wrap}.card-hd .placeholder-badge{font-size:10px}
+button,summary,input,select,textarea{scroll-margin-top:calc(var(--studio-header-height,120px) + 80px);scroll-margin-bottom:calc(var(--studio-dock-height,160px) + 30px)}
+@media(max-width:800px){.grid-env{grid-template-columns:repeat(2,minmax(0,1fr))!important}.factory-preset-grid{grid-template-columns:1fr 1fr!important}#panic{position:fixed;right:14px;bottom:14px;z-index:100;background:#49292a;box-shadow:0 0 0 3px #0c1215;min-height:44px}.foot{padding-bottom:64px}.topbar .right{padding-right:0}.keyboard-dock{padding-bottom:64px!important}.studio-performance .factory-preset-grid{grid-template-columns:1fr 1fr!important}button,summary,input,select,textarea{scroll-margin-top:60px;scroll-margin-bottom:70px}}
+@media(max-width:520px){.grid-env,.factory-preset-grid,.studio-performance .factory-preset-grid{grid-template-columns:1fr!important}.studio-master{padding:8px!important}.topbar .right .btn{font-size:11px}.subtitle{font-size:9px}.studio-intro{margin-top:12px}.studio-performance{margin-top:12px}.studio-jumpbar .btn{flex:1}.seq-step-controls{grid-template-columns:1fr!important}.seq-step-controls>*{grid-column:1!important}}
+@media(pointer:coarse){.btn,.tab,select,summary,input[type=range]{min-height:44px}.switch{min-height:44px;display:inline-flex;align-items:center}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media(max-width:800px){.topbar{backdrop-filter:none;filter:none;transform:none}}
+.seq-step-controls select{padding:5px 2px!important}.seq-step-controls{grid-template-columns:42px minmax(0,1fr)}.studio-step-advanced select,.studio-step-advanced input{padding:5px 2px!important}

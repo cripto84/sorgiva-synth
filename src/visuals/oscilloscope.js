@@ -107,7 +107,7 @@
       updateState({ running: false, signalState: "off" }, { force: true });
       return;
     }
-    if (document.hidden) {
+    if (document.hidden || !canvas?.getClientRects().length) {
       schedule();
       return;
     }
