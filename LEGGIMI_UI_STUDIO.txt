@@ -1,0 +1,26 @@
+SORGIVA SYNTH — UI STUDIO RC1
+29 ottobre 2026 · motore 0.27.0-beta1-rc1
+
+Apri index.html in un browser moderno e premi Sblocca Audio.
+Per un'origine stabile e le funzionalità dipendenti dal browser, usa un server locale:
+  python3 -m http.server 8080
+poi apri http://localhost:8080
+Non occorrono npm, compilazione o dipendenze remote per eseguire il sintetizzatore.
+
+Performance: preset, VCF, ADSR, mix/abilitazione FX, salvataggio locale ed export JSON.
+Sound Design: tutti i nove pannelli originali. La stessa patch rimane in memoria.
+Riduci tastiera libera spazio; Scope / Spectrum apre le misure audio reali.
+Panic resta disponibile. Sui telefoni è un pulsante fisso in basso a destra.
+
+Salva locale conserva una patch nel browser; per una libreria di suoni usa User Bank.
+Esporta JSON per conservare una copia indipendente dai dati del browser.
+Un preset evidenziato nel browser factory viene caricato solo con Carica preset factory
+(o doppio clic): il nome Patch nell'header identifica la patch corrente.
+
+Grafici onde, filtri, ADSR ed EQ: rappresentazioni illustrative/teoriche dei parametri,
+non misure del segnale e non simulazioni calibrate di tutto il DSP.
+Tastiera virtuale: mouse/touch oppure Tab e Invio/Spazio. Tastiera PC: mappatura originale.
+
+Release candidata UI, non pubblicata. Ascolto umano, controller MIDI fisici e dispositivi
+mobili reali non sono stati collaudati in questo ambiente. Vedi rapporto nel COMPLETO.
+Licenza software e attribuzioni originali conservate.
