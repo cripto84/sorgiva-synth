@@ -1,26 +1,26 @@
-# UI Studio RC1 — riallineamento GitHub (29 ottobre 2026)
+# UI Studio RC1 — GitHub verification (29 October 2026)
 
-## Baseline
-- Motore: `0.27.0-beta1-rc1` (invariato)
-- Interfaccia richiesta: **UI Studio RC1**
-- Manuale: **edizione editoriale 4.0 candidata**, 1043 pagine, non qualificata come pubblicazione definitiva
-- Pacchetti di riferimento: `Sorgiva_Synth_UI_Studio_RC1_ESSENZIALE.zip` e `Sorgiva_Synth_UI_Studio_RC1_COMPLETO.zip`.
+Engine: 0.27.0-beta1-rc1; UI: Studio RC1; editorial manual v4.0 candidate, 1,043 pages.
 
-## Stato della branch (integrazione in corso, NON distribuire)
-L'entrypoint `index.html` ora punta a `styles/ui-studio.css` e `src/ui/studio.js`. Le due risorse **NON sono ancora presenti** nel repository: vanno trasferite integralmente dagli ZIP RC1 prima del merge e della distribuzione.
+## Checked and present in the release branch
+- index.html, src/ui/studio.js, styles/ui-studio.css, UI_VERSION.txt, LEGGIMI_UI_STUDIO.txt
+- src/visuals/oscilloscope.js and src/visuals/spectroscope.js
+- Sorgiva_Synth_UI_Studio_RC1_ESSENZIALE.zip (418,768 bytes)
+- Sorgiva_Synth_Manuale_Utente_UI_Studio_RC1_CANDIDATO.pdf (4,454,421 bytes)
 
-Le modifiche ai visualizzatori `src/visuals/oscilloscope.js` e `src/visuals/spectroscope.js` recepiscono il controllo di visibilità del canvas presente nel pacchetto RC1.
+All local RC1 runtime files match the original COMPLETO archive byte by byte. GitHub blob hashes for the UI entrypoint, UI modules and visualizers match the local originals. The PDF and uploaded ESSENZIALE correspond to the local originals.
 
-## Per completare il merge
-1. Copiare i due file UI **integralmente e senza riscrittura** dall'archivio ESSENZIALE nelle rispettive posizioni.
-2. Copiare `UI_VERSION.txt` e `LEGGIMI_UI_STUDIO.txt` dall'ESSENZIALE.
-3. Pubblicare il PDF `Sorgiva_Synth_Manuale_Utente_UI_Studio_RC1_CANDIDATO.pdf` e aggiornare i link in README solo quando il file è presente.
-4. Preparare il pacchetto ESSENZIALE coerente e mantenere la distribuzione COMPLETO come archivio QA, evitando di versionare automaticamente tutti i 533 file QA e i numerosi ZIP checkpoint.
-5. Confrontare SHA-256 dei sorgenti, verificare il caricamento completo, 135 factory preset, i 643 parametri della patch, 229 target MIDI Learn, i browser a 1440/1366/768/390, note on/off, Panic, persistenza e il roundtrip JSON.
-6. Lasciare il rilascio come RC: il dossier dichiara **non eseguiti** ascolto umano, MIDI hardware e test su dispositivi fisici.
-7. Aggiornare il README pubblico e preparare una release solo dopo il superamento dei gate.
+## Checks performed
+- Both ZIPs passed CRC verification.
+- 34 JS files passed Node syntax checks.
+- All locally referenced HTML script and CSS files exist.
+- Historical RC1 QA dossier reports factory, parameter, MIDI and browser tests; those tests were not rerun here.
+- Real hardware MIDI, human listening, actual mobile devices and current full browser integration are not certified.
 
-## Integrità
-Nessuna modifica intenzionale al motore DSP o alla libreria factory. Non rinominare gli identificatori storici SynthX impiegati per compatibilità.
+## Packaging reduction
+Original COMPLETO: 624 files, 89,014,890 bytes, dominated by QA screenshots, 24 checkpoints and nested older release archives.
+New SVILUPPO_SNELLO: 90 files, 1,518,722 bytes.
+New COMPLETO_SNELLO: 91 files, 4,673,025 bytes, including this candidate PDF.
+The two lean ZIPs are supplied as conversation deliverables and have NOT been uploaded to GitHub. Their runtime files are exactly identical to the original ESSENZIALE.
 
-Questa branch è una preparazione tracciabile, **non una sincronizzazione completa** degli allegati.
+See docs/UI_STUDIO_RC1_RELEASE_POLICY.md for release workflow. Keep the original oversized archive offline as historical evidence. Existing historical GitHub binaries should not be mistaken for the current RC1 release. Do not merge the draft PR until validation gates are complete.
