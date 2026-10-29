@@ -2,9 +2,9 @@
 
 **Open-source WebAudio synthesizer for sound design, experimentation and learning.**
 
-> **Current source:** `v0.27.0-beta1-rc1` — Beta 1 Release Candidate, dated **27 October 2026**.  
-> **Status:** targeted testing candidate, **not a certified stable/public release**.  
-> **Manual:** Italian v3.0 **integral working draft**, not the final verified edition.
+> **Runtime:** `0.27.0-beta1-rc1` (27 October 2026); **UI:** `UI Studio RC1` (29 October 2026).  
+> **Status:** release candidate for testing, not a certified stable release.  
+> **Manual:** Italian UI Studio RC1 v4.0 editorial candidate (1,043 pages), not final-approved.  
 
 Sorgiva Synth is a browser-based polyphonic synthesizer with three oscillators, five noise colours,
 PWM, FM Light, Ring Mod, Osc Sync, up to 12 Unison layers, three LFOs, eight-slot Mod Matrix,
@@ -24,36 +24,24 @@ multiple filters, five-band EQ, effects, MIDI input/MIDI Learn/MIDI Clock, seque
 
 ## Quick start
 
-1. Download [ESSENZIALE](./downloads/Sorgiva_Synth_v0_27_0_beta1rc1_ESSENZIALE.zip), the runnable package;
-   or use the source tree at this repository's root.
-2. Extract your chosen ZIP fully, then open `index.html` in a modern Chromium desktop browser.
-3. Set a moderate listening volume, select **Sblocca Audio / Unlock Audio**, then load **Default Init**.
-4. In **Performance → Adaptive Performance**, inspect the initial **AUTO** resource profile.
-5. To use physical WebMIDI, prefer a secure origin (HTTPS or localhost), grant permissions in the browser,
-   and test Note On/Off and Panic before further experimentation.
+1. Download the **current UI Studio RC1 ESSENZIALE** ZIP below, extract all files, then open `index.html` in a modern Chromium-based browser.
+2. Select **Sblocca Audio**, load **Default Init**, and play at a safe volume.
+3. Use **Performance** to play quickly and **Sound Design** to reach the nine original editing tabs. Both views control the same patch.
+4. For WebMIDI, prefer HTTPS or localhost: `python3 -m http.server 8000`, then open http://localhost:8000.
+5. Export patches/User Bank/Sequencer patterns/MIDI mappings before changing your browser or profile.
 
-For localhost, from the extracted application directory:
+## Current downloads and documentation (29 October 2026)
 
-```bash
-python3 -m http.server 8000
-# Then open http://localhost:8000/
-```
+- [UI Studio RC1 ESSENZIALE ZIP — runnable, 48 files](./Sorgiva_Synth_UI_Studio_RC1_ESSENZIALE.zip)
+- [UI Studio RC1 manual — v4.0 editorial candidate, PDF](./Sorgiva_Synth_Manuale_Utente_UI_Studio_RC1_CANDIDATO.pdf)
+- [UI Studio RC1 maintenance and packaging policy](./docs/UI_STUDIO_RC1_RELEASE_POLICY.md)
+- [UI Studio RC1 alignment and QA audit](./docs/UI_STUDIO_RC1_GITHUB_ALIGNMENT.md)
+- [Engine release notes](./RELEASE_NOTES_v0_27_0_beta1rc1.md)
+- [Musical testing checklist](./BETA1_RC1_COLLAUDO.md)
 
-## Downloads and documentation
+**Lean distribution:** The full original UI Studio RC1 archive was roughly 89 MB with 624 files, mainly repeated QA screenshots, phase checkpoints and nested prior ZIPs. A lean complete archive (approx. 4.7 MB including this manual) and a development archive (approx. 1.5 MB) were regenerated without changing any of the 48 runnable source files. Those packages are independent deliverables until explicitly uploaded to GitHub; this README does not represent them as hosted here.
 
-- [ESSENZIALE — runnable beta candidate](./downloads/Sorgiva_Synth_v0_27_0_beta1rc1_ESSENZIALE.zip)
-- [COMPLETO — beta candidate, technical documents and historical QA material](./Sorgiva_Synth_v0_27_0_beta1rc1_COMPLETO.zip) (repository root; use ESSENZIALE for normal playing).
-- [Manuale utente v3.0 — Beta1 RC1, integral aligned working draft (PDF)](./Sorgiva_Synth_Manuale_v3_0_Beta1_RC1_RIALLINEATO.pdf) (repository root; **not** the final verified manual). The [historical manual v2.1](./Sorgiva_Synth_Master_Editoriale_Manuale_Utente_v2_1.pdf) remains available but is **outdated**.
-- [Release notes](./RELEASE_NOTES_v0_27_0_beta1rc1.md)
-- [Beta testing checklist](./BETA1_RC1_COLLAUDO.md)
-- [Beta QA / test scope](./BETA1_RC1_COLLAUDO.md)
-
-**Manual status:** the 38-chapter text is preserved and supplemented with technical updates, but
-individual inherited claims, all historical page references and exhaustive visual review have **not**
-been completed. It must not be presented as a final, fully validated user manual.
-
-The **COMPLETO** archive includes historical material, including previous manual editions;
-this does not make those historical files the current manual.
+**Historical assets (not the current UI):** [Beta1 RC1 ESSENZIALE](./downloads/Sorgiva_Synth_v0_27_0_beta1rc1_ESSENZIALE.zip), [Beta1 RC1 COMPLETO](./Sorgiva_Synth_v0_27_0_beta1rc1_COMPLETO.zip), [manual v3.0 draft](./Sorgiva_Synth_Manuale_v3_0_Beta1_RC1_RIALLINEATO.pdf), [manual master v2.1](./Sorgiva_Synth_Master_Editoriale_Manuale_Utente_v2_1.pdf). These are retained for archival and rollback uses, not recommended as current downloads.
 
 ## QA: tested vs. not certified
 
@@ -71,18 +59,15 @@ legacy SynthX-file variants remain to be verified. Contributors can use the stru
 
 | Path | Content |
 |---|---|
-| `index.html`, `styles/`, `src/` | Current runnable application source |
-| `docs/` | Technical notes about the current Beta1 candidate |
-| `downloads/` | ESSENZIALE runnable ZIP |
-| `Sorgiva_Synth_v0_27_0_beta1rc1_COMPLETO.zip` | COMPLETO distribution ZIP (repository root) |
-| `Sorgiva_Synth_Manuale_v3_0_Beta1_RC1_RIALLINEATO.pdf` | Aligned manual v3.0 working draft (repository root) |
-| `Sorgiva_Synth_Master_Editoriale_Manuale_Utente_v2_1.pdf` | Historical manual v2.1 (outdated) |
-| `.github/` | Contribution and feedback templates |
-| `LICENSE`, `DOCUMENTATION_LICENSE.md`, `TRADEMARK_NOTICE.md` | Licensing and identity rules |
+| `index.html`, `styles/`, `src/` | Current UI Studio RC1 runnable source |
+| `UI_VERSION.txt`, `VERSION` | UI version and independent engine version |
+| `docs/` | Technical notes, release policy and alignment audit |
+| `Sorgiva_Synth_UI_Studio_RC1_ESSENZIALE.zip` | Current UI Studio RC1 runnable ZIP |
+| `Sorgiva_Synth_Manuale_Utente_UI_Studio_RC1_CANDIDATO.pdf` | Current editorial candidate manual |
+| `downloads/` and older named binaries | Historical Beta1 packages for reference only |
+| `.github/` | Issue/PR templates |
 
-Sorgiva Synth is not a DAW or sampler. The desktop browser path is its current mainline.
-If you are upgrading from an older build, export user presets, patterns, Arp macros and MIDI Learn
-mappings separately. Preserve a previous release in a different directory for rollback.
+See `docs/UI_STUDIO_RC1_RELEASE_POLICY.md` for how to separate source, distribution and QA history.
 
 ## Contributing and support
 
