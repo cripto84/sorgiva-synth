@@ -188,7 +188,7 @@
       updateState({ running: false, spectrumSignalState: "off" }, { force: true });
       return;
     }
-    if (document.hidden) {
+    if (document.hidden || !canvas?.getClientRects().length) {
       schedule();
       return;
     }
