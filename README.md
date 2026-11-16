@@ -2,6 +2,14 @@
 
 Open-source WebAudio synthesizer. Engine `0.27.0-beta1-rc1`, UI Studio RC1 (29 October 2026). Release candidate for testing, not a certified stable release.
 
+## Play online — GitHub Pages
+
+[Launch Sorgiva Synth in your browser](https://cripto84.github.io/sorgiva-synth/) — no download or installation required. Press **Sblocca Audio** before playing, and start with a moderate listening volume.
+
+The online edition uses the same WebAudio engine and UI Studio RC1 code as the downloadable package. For WebMIDI, use a compatible browser (such as desktop Chromium) and grant permission when asked. The page uses HTTPS.
+
+**Site activation:** GitHub repository **Settings → Pages → Build and deployment → Deploy from a branch → main → /(root) → Save**. The link becomes available once GitHub Pages has deployed the site.
+
 ## Downloads
 
 - [ESSENZIALE ZIP](./Sorgiva_Synth_UI_Studio_RC1_ESSENZIALE.zip) — runnable package
