@@ -1,0 +1,30 @@
+name: Refresh RC1 downloadable ZIP archives
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/audio/audio-context.js'
+      - 'scripts/refresh_rc1_archives.py'
+      - '.github/workflows/repack-rc1.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Synchronize RC1 packages
+        run: python3 scripts/refresh_rc1_archives.py
+      - name: Check audio source syntax
+        run: node --check src/audio/audio-context.js
+      - name: Commit synchronized archives
+        shell: bash
+        run: |
+          git add Sorgiva_Synth_UI_Studio_RC1_ESSENZIALE.zip Sorgiva_Synth_UI_Studio_RC1_SVILUPPO_SNELLO.zip Sorgiva_Synth_UI_Studio_RC1_COMPLETO_SNELLO.zip
+          if git diff --cached --quiet; then
+            echo "All packages already synchronized."
+            exit 0
+          fi
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'build: synchronize RC1 ZIPs with note-off de-click source'
+          git push

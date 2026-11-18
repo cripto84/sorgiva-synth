@@ -1307,37 +1307,51 @@
     };
   }
 
+  // RC1 note-off de-click: a finite C2-continuous fade. Unlike an exponential
+  // setTargetAtTime tail, this automation reaches actual silence before retire().
+  // It does not modify the musical ADSR release time or the waveform generators.
+  function scheduleClickFreeRelease(param, at, duration, initialLevel) {
+    const seconds = Math.max(0.012, Number(duration) || 0.012);
+    const level = Math.max(0, Number(initialLevel) || 0);
+    holdAudioParam(param, at, level);
+
+    // Smoothstep quintic: zero slope and curvature at BOTH ends. An explicit
+    // zero endpoint makes oscillator.stop() / graph cleanup inaudible.
+    const points = 128;
+    const curve = new Float32Array(points);
+    for (let i = 0; i < points; i += 1) {
+      const x = i / (points - 1);
+      const fade = 1 - (10 * x * x * x - 15 * x * x * x * x + 6 * x * x * x * x * x);
+      curve[i] = level * fade;
+    }
+    curve[points - 1] = 0;
+    try {
+      param.setValueCurveAtTime(curve, at, seconds);
+      // Hold silence beyond the end of the automation until voice retirement.
+      param.setValueAtTime(0, at + seconds);
+    } catch (_) {
+      // Compatibility fallback, still reaching exact zero before stop().
+      try {
+        param.cancelScheduledValues(at);
+        param.setValueAtTime(level, at);
+        param.linearRampToValueAtTime(0, at + seconds);
+      } catch (__) {}
+    }
+    return seconds;
+  }
+
   function applyAmpRelease(voice, fast) {
     if (!voice?.output || !context) return 0.05;
     const env = getEnvelopeConfig();
     const t = now();
     const profile = voiceDeClickProfile(voice);
-    const lowHarmonic = voiceUsesLowHarmonicDeClick(voice);
     const release = fast ? profile.fastRelease : Math.max(env.release, profile.releaseMin);
-    const gain = voice.output.gain;
-    holdAudioParam(gain, t, estimateAmpEnvelopeLevel(voice, t));
-
-    // v0.23.3c: con sine/triangle pure il click riferito dall'utente avviene
-    // al rilascio del tasto. Per queste onde evitiamo rampe lineari troppo
-    // secche e usiamo setTargetAtTime, che è più morbido sul punto di release.
-    // Le onde ricche mantengono rampe più rapide per non perdere punch.
-    if (lowHarmonic) {
-      const tc = Math.max(0.018, release / 4);
-      try { gain.setTargetAtTime(0.0001, t, tc); }
-      catch (_) {
-        const endAt = t + safeTime(release, profile.releaseMin);
-        try { gain.linearRampToValueAtTime(0.0001, endAt); } catch (__) {}
-      }
-      return Math.max(0.090, release * 1.25);
-    }
-
-    const endAt = t + safeTime(release, fast ? Math.min(0.035, profile.fastRelease) : profile.releaseMin);
-    if (env.curve === "exp") {
-      try { gain.exponentialRampToValueAtTime(0.0001, endAt); } catch (_) { gain.setTargetAtTime(0.0001, t, Math.max(0.010, release / 4)); }
-    } else {
-      try { gain.linearRampToValueAtTime(0.0001, endAt); } catch (_) { gain.setTargetAtTime(0.0001, t, Math.max(0.010, release / 4)); }
-    }
-    return Math.max(0.050, release);
+    return scheduleClickFreeRelease(
+      voice.output.gain,
+      t,
+      release,
+      estimateAmpEnvelopeLevel(voice, t)
+    );
   }
 
   function estimateNoiseGainLevel(voice, at) {
@@ -1358,16 +1372,15 @@
     const t = now();
     const profile = voiceDeClickProfile(voice);
     const minRelease = Math.max(0.012, Number(profile.noiseReleaseMin) || 0.030);
-    const desired = fast ? Math.max(minRelease * 0.70, Math.min(Number(releaseSeconds) || minRelease, Number(profile.fastRelease) || minRelease)) : Math.max(Number(releaseSeconds) || minRelease, minRelease);
-    const gain = voice.noise.gain.gain;
-    holdAudioParam(gain, t, estimateNoiseGainLevel(voice, t));
-    try {
-      gain.setTargetAtTime(0.0001, t, Math.max(0.010, desired / 4));
-    } catch (_) {
-      const endAt = t + safeTime(desired, minRelease);
-      try { gain.linearRampToValueAtTime(0.0001, endAt); } catch (__) {}
-    }
-    return Math.max(0.050, desired * 1.20);
+    const desired = fast
+      ? Math.max(minRelease * 0.70, Math.min(Number(releaseSeconds) || minRelease, Number(profile.fastRelease) || minRelease))
+      : Math.max(Number(releaseSeconds) || minRelease, minRelease);
+    return scheduleClickFreeRelease(
+      voice.noise.gain.gain,
+      t,
+      desired,
+      estimateNoiseGainLevel(voice, t)
+    );
   }
 
   // Only per-voice parameters are needed when constructing a note.  The

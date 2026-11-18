@@ -14,3 +14,7 @@ Package sizes:
 
 ZIP integrity and JavaScript syntax checks passed. No full browser acceptance or hardware MIDI certification was completed.
 See the README and the release policy for the active distribution.
+
+## Maintenance — 18 November 2026
+
+The canonical audio engine has a note-off de-click fix (finite quintic fade to zero, including noise). The maintainer reported satisfactory listening results. The three existing ZIPs are synchronized using `scripts/refresh_rc1_archives.py` and GitHub Actions. Historical size figures above are from 29 October 2026 and no longer represent updated archives. Full automated browser audio certification remains pending.
